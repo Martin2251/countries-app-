@@ -5,9 +5,9 @@ const Article = ({flags,name,population,region,subregion}) => {
    <>
    <article>
     <img src={flags.svg} alt=""  />
-    <h2>{name.common}</h2>
+    <h2 className='font-bold text-lg text-gray-900 mb-2'>{name.common}</h2>
     <ul>
-        <li>Population: {population}</li>
+        <li>Population: {population.toLocaleString()}</li>
         <li>Region : {region}</li>
         <li>Subregion: {subregion}</li>
     </ul>
