@@ -25,8 +25,8 @@ const Countries = () => {
           Loading....
         </h1>
       ) : (
-        <section>
-            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+        <section className="container mx-auto p-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {countries.map((country) => (
             <Article key={countries.name} {...country}></Article>
           ))}
