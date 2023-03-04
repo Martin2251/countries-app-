@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Article = ({flags,name,population,region,subregion}) => {
   return (
    <>
-   <Link to ={`/${name}`}>
+   <Link to ={`/${name.common}`}>
    <article className='bg-white hover:bg-gray-200  dark:bg-gray-800 dark:hover:bg-gray-700 transition-all duration-200rounded-lg shadow overflow-hidden'>
     <img src={flags.svg} alt="" className='md:h-72 w-full object-cover' />
     <div className='p-4'>
