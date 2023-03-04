@@ -9,10 +9,35 @@ const SingleCountry = () => {
 
 
     useEffect (() => {
+        const getSingleCountry = async () => {
+            try {
+                const res = await fetch (`https://restcountries.com/v3.1/name/${name}`)
+                const data = await res.json()
+                setCountry(data)
+                
+            } catch (error) {
+                console.error(error)
+            }
+        }
+        getSingleCountry()
 
     }, [name])
   return (
-    <div>{name}</div>
+  <>
+  <section>
+   {country.map((item) => (
+    <div key={item.population}>
+        <article>
+            <img src={item.flags.svg} alt={item.name}  />
+        </article>
+        <article>
+            <h1>{item.name.official}</h1>
+        </article>
+    </div>
+   ))}
+  </section>
+  
+  </>
   )
 }
 
