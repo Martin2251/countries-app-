@@ -50,9 +50,25 @@ const Countries = () => {
     }
   }
 
+  async function filterByRegion(region){
+    try {
+        const res = await fetch (`https://restcountries.com/v3.1/region/${region}`)
+        const data = await res.json()
+        setCountries(data)
+    } catch (error) {
+        console.error(error)
+        
+    }
+  }
+
   function handleSearchCountry(e) {
     e.preventDefault();
     searchCountry();
+
+    function handleFilterByRegion (e) {
+    e.preventDefault();
+    filterByRegion();
+    }
 
   }
   return (
@@ -68,8 +84,8 @@ const Countries = () => {
                 <form onSubmit={handleSearchCountry} autoComplete="off" className="max-w-4xl md:flex-1">
                     <input type="text" name="search" value={searchText} onChange={(e) => setSearchText(e.target.value)} id="search" placeholder="Search for a country" required className="py-3 px-4 text-gray-600 placeholder-gray-600 w-full shadow outline-none dark:text-gray-400 dark:placeholder-gray-400 dark:bg-gray-800 dark:focus:bg-gray-700 transition-all duration-200"/>
                 </form>
-                <form >
-                    <select name="filter-by-region" id="filter-by-region" className="w-52 py-3 px-4 outline-none shadow rounded text-gray-600 dark:text-gray-400 dark:bg-gray-800 dark:focus:bg-gray-700">
+                <form onSubmit={handleFilterByRegion} >
+                    <select name="filter-by-region" id="filter-by-region" className="w-52 py-3 px-4 outline-none shadow rounded text-gray-600 dark:text-gray-400 dark:bg-gray-800 dark:focus:bg-gray-700" value={regions.name} onChange={e=> filterByRegion(e.target.value)}>
                         {regions.map((region,index) =>(
                             <option key={index} value={region.name}>{region.name}</option>
                         ))}
