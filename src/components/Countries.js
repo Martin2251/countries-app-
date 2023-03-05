@@ -26,9 +26,9 @@ const Countries = () => {
         </h1>
       ) : (
         <section className="container mx-auto p-8">
-            <div>
-                <form>
-                    <input type="text" name="search" id="search" placeholder="Search for a country" required  />
+            <div className="flex flex-col gap-4 md:flex-row">
+                <form autoComplete="off" className="max-w-4xl">
+                    <input type="text" name="search" id="search" placeholder="Search for a country" required className="py-3 px-4 text-gray-600 placeholder-gray-600 w-full shadow outline-none"/>
                 </form>
                 <form>
                     <select name="filter-by-region" id="filter-by-region"></select>
