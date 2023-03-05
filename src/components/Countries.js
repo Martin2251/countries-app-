@@ -64,12 +64,11 @@ const Countries = () => {
   function handleSearchCountry(e) {
     e.preventDefault();
     searchCountry();
+  }
 
-    function handleFilterByRegion (e) {
+  function handleFilterByRegion (e){
     e.preventDefault();
     filterByRegion();
-    }
-
   }
   return (
     <>
